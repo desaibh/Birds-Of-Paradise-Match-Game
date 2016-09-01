@@ -20,7 +20,7 @@ h1 {
   text-align: center;
   font-size: 44px;
 }
-.cell, #cell, #cell1 {
+.cell {
   width: 4em;
   height: 4em;
   float: right;
@@ -70,5 +70,5 @@ h1 {
   background-color: black;
 }
 .bird4 {
-  background-color peach;
+  background-color: lavender;
 }
