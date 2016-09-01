@@ -18,12 +18,12 @@ for (let i = 1; i < 101; i++) {
 }
 
 //Check Row Matches
-for (i = 1; i <=10; i++) {
-  if ()
-}
-
-
-// check column matches
-
-//Swap Cells
-for (i
+// for (i = 1; i <=10; i++) {
+//   if ()
+// }
+//
+//
+// // check column matches
+//
+// //Swap Cells
+// for (i
