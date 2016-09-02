@@ -11,6 +11,12 @@ let winArr = []; //array that's used to store the unique values of winning Combo
 let resetCounter = 0; //iterative counter that works with gravity function to reset values
 let resetTester; //holds a boolean to test for whether a reset has occurred;
 let resetBird; // holds the value of the birdChoice
+let click1ID; //records id of first click event
+let click1Class; //records class of first click event
+let click2ID; //records id of second click event
+let click2Class;  //records class of first click event
+let stringAdjacency1; //evaluates whether the cell Ids are adjacent
+let stringAdjacency2; //evaluates whether the cell Ids are adjacent
 
 //Generate Cells on Board & Assign Display Value for Cell
 for (let i=1; i<101; i++) {
@@ -69,17 +75,34 @@ for (wins of winningCombos) {
 //       resetTester = true;
 //       resetCellId = 'cell' + (j-10);
 //       console.log(j, 'reset counter ',cellId);
-//     } // else if (resetCounter > 0) {
-    //   console.log(j, 'reset cell Id ',resetCellId);
-    //   document.getElementById(cellId) = document.getElementById(resetCellId);
-    //   console.log(document.getElementById(CellId))
-    //   resetCounter--;
-    // }
+//     } else if (resetCounter > 0) {
+//       console.log(j, 'reset cell Id ',resetCellId);
+//       document.getElementById(cellId) = document.getElementById(resetCellId);
+//       console.log(document.getElementById(CellId))
+//       resetCounter--;
+//     }
 //   }
 // }
 
-//Swap Cells
+//Listen to a Click Event to Swap Cells
+document.getElementById('board').addEventListener("click", function(e){
+  click1ID = event.target.id;
+  click1Class = event.target.className;
+  stringAdjacency1 = click1ID.replace('cell','')
+  console.log(stringAdjacency1);
+  document.getElementById('board').addEventListener("click", function(e){
+    click2ID = event.target.id;
+    click2Class = event.target.className;
+    stringAdjacency2 = click2ID.replace('cell','')
+    console.log(stringAdjacency2);
+    swapIds(click1ID, click2ID);
+  });
+});
 
-    document.getElementById('board').addEventListener("click", function(e){
-       alert(event.target.id);
-    });
+function swapIds(click1ID, click1Class, click2ID, click2Class) {
+  //Are cells adjacent? If so, swap Cells
+
+  console.log(stringAdjacency2, stringAdjacency1);
+  //Check the winning combinations to see if there's a new match;
+  //Swap cells;
+}
