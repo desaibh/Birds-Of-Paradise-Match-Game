@@ -23,7 +23,7 @@ h1 {
 .cell {
   width: 4em;
   height: 4em;
-  float: right;
+  float: left;
   background-color: green;
   border: 1px black solid;
   border-radius: .25em;
@@ -71,4 +71,7 @@ h1 {
 }
 .bird4 {
   background-color: lavender;
+}
+.reset {
+  background-color: green;
 }
