@@ -15,8 +15,8 @@ let click1ID; //records id of first click event
 let click1Class; //records class of first click event
 let click2ID; //records id of second click event
 let click2Class;  //records class of first click event
-let stringAdjacency1; //evaluates whether the cell Ids are adjacent
-let stringAdjacency2; //evaluates whether the cell Ids are adjacent
+let stringAdjacency1 = null; //evaluates whether the cell Ids are adjacent
+let stringAdjacency2 = null; //evaluates whether the cell Ids are adjacent
 
 //Generate Cells on Board & Assign Display Value for Cell
 for (let i=1; i<101; i++) {
@@ -58,51 +58,61 @@ for (let i=3; i<=10; i++) {
   }
 }
 
-//Identify Cells that Are Reset
+//Get the Unique Values from WinningCombos and Reset Array
+let arr = [];
+for (wins in winningCombos) {
+		if (arr.indexOf(winningCombos[wins]) == -1) arr.push(winningCombos[wins]);
+	}
+winningCombos = [];
+winningCombos = arr.slice(0);
+console.log(winningCombos);
+
+//Identify Cells that Are Reset, Sparkle, then Repopulate
 for (wins of winningCombos) {
   cellId = 'cell' + wins;
   cellClass = 'cell reset';
   document.getElementById(cellId).className = cellClass;
 }
 
-//Reset Board to Replace Winning Combinations // Gravity Function
-// for (let i=101; i<=110; i++) {
-//   for (let j=i-10; j>=1; j--) {
-//     cellId = 'cell' + j;
-//     console.log(cellId);
-//     if (document.getElementById(cellId).classList.contains('reset')) {
-//       resetCounter++;
-//       resetTester = true;
-//       resetCellId = 'cell' + (j-10);
-//       console.log(j, 'reset counter ',cellId);
-//     } else if (resetCounter > 0) {
-//       console.log(j, 'reset cell Id ',resetCellId);
-//       document.getElementById(cellId) = document.getElementById(resetCellId);
-//       console.log(document.getElementById(CellId))
-//       resetCounter--;
-//     }
+//source: http://stackoverflow.com/questions/14226803/javascript-wait-5-seconds-before-executing-next-line
+// function resetBoard(ms){
+//   let start = new Date().getTime();
+//   let end = start;
+//   while(end < start + ms) {
+//     end = new Date().getTime();
 //   }
-// }
+//   for (wins of winningCombos) {
+//     birdPicker = Math.floor(Math.random()*4+1);
+//     cellClass = 'cell bird' + birdPicker;
+//     document.getElementById(cellId).className = cellClass;
+//   }
+// };
+// resetBoard(1000);
+
 
 //Listen to a Click Event to Swap Cells
 document.getElementById('board').addEventListener("click", function(e){
-  click1ID = event.target.id;
-  click1Class = event.target.className;
-  stringAdjacency1 = click1ID.replace('cell','')
-  console.log(stringAdjacency1);
-  document.getElementById('board').addEventListener("click", function(e){
-    click2ID = event.target.id;
-    click2Class = event.target.className;
-    stringAdjacency2 = click2ID.replace('cell','')
-    console.log(stringAdjacency2);
-    swapIds(click1ID, click2ID);
-  });
+  if(stringAdjacency1 == null ) {
+    click1ID = event.target.id.toString();
+    click1Class = event.target.className.toString();
+    stringAdjacency1 = parseInt(click1ID.replace('cell',''));
+  } else if(stringAdjacency1 !== null){
+    click2ID = event.target.id.toString();
+    click2Class = event.target.className.toString();
+    stringAdjacency2 = parseInt(click2ID.replace('cell',''));
+    if (stringAdjacency1 + 1 == stringAdjacency2 || stringAdjacency1 - 1 == stringAdjacency2 ||  stringAdjacency1 + 10 == stringAdjacency2 || stringAdjacency1 - 10 == stringAdjacency2) {
+      document.getElementById(click1ID).className = click2Class;
+      document.getElementById(click2ID).className = click1Class;
+      //need to run checkwinners here
+      stringAdjacency1=null;
+      stringAdjacency2=null;
+    } else {
+      //deselect
+      stringAdjacency1=null;
+      stringAdjacency2=null;
+    }
+  }
 });
 
-function swapIds(click1ID, click1Class, click2ID, click2Class) {
-  //Are cells adjacent? If so, swap Cells
-
-  console.log(stringAdjacency2, stringAdjacency1);
-  //Check the winning combinations to see if there's a new match;
-  //Swap cells;
-}
+// Javascript Timer
+// source used as reference: https://www.sitepoint.com/build-javascript-countdown-timer-no-dependencies/
