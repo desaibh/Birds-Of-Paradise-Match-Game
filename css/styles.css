@@ -1,7 +1,8 @@
 body {
   background: blue;
   width: 100%;
-
+  box-sizing: border-box;
+  zoom: 80%
 }
 #container {
   width: 100%;
@@ -14,11 +15,29 @@ body {
   max-width: 44em;
   height: 44em;
   float: left;
-  margin-right: 10px;
+  margin-right: 1rem;
+}
+p {
+  font-size: 20px;
 }
 h1 {
   text-align: center;
-  font-size: 44px;
+  font-size: 2.5rem;
+  margin-top: 2rem;
+}
+h2 {
+  text-align: center;
+  font-size: 1em;
+}
+h3 {
+  color: white;
+  line-height: 0px;
+  margin: 0px;
+  padding: 0px;
+  font-size: 1.8rem;
+}
+h4 {
+  margin-top: 0px;
 }
 .cell {
   width: 4em;
@@ -40,37 +59,42 @@ h1 {
   -webkit-border-radius: .25em;
   background-color: orange;
 }
-.timer {
+#timer, #score {
   width: 80%;
+  height: 20em;
   margin: .3em auto;
   height: .1em;
   border: 1px black solid;
   padding: 1em 0;
-  background-color: black;
-  font-family: Itim, Verdama;
+  background-color: purple;
+  font-family: Itim, Verdana;
   color: white;
   font-size: 44px;
   line-height: 0px;
   text-align: center;
 }
- .scorer {
+ #funfacts {
   width: 80%;
   height: 20em;
   margin: 1em auto .2em auto;
-  border: 1px black solid;
+  border: 1px purple  solid;
   padding: 1em 0;
 }
 .bird1 {
-  background-color: white;
+  background-image: url("../images/bird1.gif");
+  background-color: orange;
 }
 .bird2 {
-  background-color: grey;
+  background-image: url('../images/bird2.gif');
+  background-color: orange;
 }
 .bird3 {
-  background-color: black;
+  background-image: url('../images/bird3.gif');
+  background-color: orange;
 }
 .bird4 {
-  background-color: lavender;
+  background-image: url('../images/bird4.gif');
+  background-color: orange;
 }
 .reset {
   background-color: green;
