@@ -15,7 +15,7 @@ let click2ID; //records id of second click event
 let click2Class;  //records class of first click event
 let stringAdjacency1 = null; //evaluates whether the cell Ids are adjacent
 let stringAdjacency2 = null; //evaluates whether the cell Ids are adjacent
-
+let gameOver; //alerts user to gameOver
 
 //Generate Cells on Board & Assign Display Value for Cell
 for (let i=1; i<101; i++) {
@@ -30,10 +30,13 @@ for (let i=1; i<101; i++) {
   document.getElementById(cellId).className = cellClass;
 }
 
+//Check Rows and Columns for Winning Combinations
 function checkWins() {
+
   while(winningCombos.length > 0) {
     winningCombos.pop();
   }
+
   while(winArr.length > 0) {
     winArr.pop();
   }
@@ -76,8 +79,14 @@ function checkWins() {
     cellId = 'cell' + wins;
     cellClass = 'cell reset';
     document.getElementById(cellId).className = cellClass;
-    scorer = scorer + 10;
+    if (!gameOver) {
+      scorer = scorer + 10;
+      if (winningCombos.length > 8) {
+        scorer = scorer + 1000;
+      }
+    }
   }
+
   document.onload = setTimeout(function resetBoard(){
     for (wins of winningCombos) {
       cellId = 'cell' + wins;
@@ -96,7 +105,7 @@ function checkWins() {
 checkWins();
 
 //Listen to a Click Event to Swap Cells
-document.getElementById('board').addEventListener("click", function(e){
+document.getElementById('board').addEventListener('click', function(e){
   if(stringAdjacency1 == null ) {
     click1ID = event.target.id.toString();
     click1Class = event.target.className.toString();
@@ -111,7 +120,6 @@ document.getElementById('board').addEventListener("click", function(e){
       placeholder = birdValue[stringAdjacency1]
       birdValue[stringAdjacency1] = birdValue[stringAdjacency2];
       birdValue[stringAdjacency2] = placeholder;
-      console.log(birdValue[stringAdjacency1], birdValue[stringAdjacency2])
       checkWins();
       stringAdjacency1=null;
       stringAdjacency2=null;
@@ -125,13 +133,12 @@ document.getElementById('board').addEventListener("click", function(e){
 
 
 // Javascript Timer
-// Source: http://stackoverflow.com/questions/20618355/the-simplest-possible-javascript-countdown-timer
+// Adapted from source: http://stackoverflow.com/questions/20618355/the-simplest-possible-javascript-countdown-timer
 function timer(duration) {
   let start = Date.now();
   let diff;
   let mins;
   let secs;
-  let asked = null;
   function clock() {
     if (mins != 0 || secs != 0) {
       diff = duration - (((Date.now() - start) / 1000) | 0);
@@ -140,11 +147,33 @@ function timer(duration) {
       mins = mins < 10 ? "0" + mins : mins;
       secs = secs < 10 ? "0" + secs : secs;
       document.querySelector('#timer').innerHTML = `<h3>${mins}:${secs}</h3>`;
+    } else {
+        alert('Game Over! Play again soon... ');
+        gameOver = true;
+        clearInterval(myClock);
     }
   }
   clock();
-  setInterval(clock, 1000);
+  let myClock=setInterval(clock, 1000);
 };
 window.onload = function() {
   timer(120);
 };
+//Play Again function
+document.querySelector('#playAgain').addEventListener('click', function(e) {
+  window.location.reload();
+});
+
+//Mute Audio
+document.querySelector('#muteAudio').addEventListener('click', function(e) {
+  document.getElementById('bgSound').muted = true;
+});
+
+// Playing with changing colors for each letter
+// let chars = document.getElementsByTagName('h1')[0].innerHTML.split('');
+// chars.forEach(char, function() {
+//   const r = Math.floor(Math.random()*255);
+//   const g = Math.floor(Math.random()*255);
+//   const b = Math.floor(Math.random()*255);
+//   document.getElementsByTagName('h1')[0].style.backGroundColor = `rgb(${r}, ${g}, ${b})`;
+// });

@@ -3,6 +3,7 @@
 <head>
   <title>My Game</title>
   <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Vesper+Libre" rel="stylesheet">
 </head>
 <body>
  <h1>Birds of Paradise Match Game</h1>
@@ -15,9 +16,25 @@
       <div id="timer"></div>
       <div><h2>Score:</h2></div>
       <div id="score"></div>
+      <div><h2>&nbsp;</h2></div>
+      <button id="playAgain"><h5>Play Again?</h5></button>
+       <div><h2>&nbsp;</h2></div>
+      <button id="muteAudio"><h5>Mute Audio</h5></button>
   </div>
 </div>
+<p class="clear"><em><a href="http://www.natgeocreative.com/ngs/photography/" target="_blank">Images are rights managed by National Geographic Creative</a></em></p>
+<p class="clear"><em><a href="http://www.freesfx.co.uk/" target="_blank">Audio sourced from FreeSFX Dot Co Dot UK</a></em></p>
 <script src="js/scripts.js"></script>
+<script src="js/modal.js"></script>
+<audio autoplay loop id="bgSound">
+ <source src="audio/jungle2.mp3"
+         type='audio/mp3'>
+ <source src="audio/jungle2.wav"
+         type='audio/wav'>
+ <source src="audio/jungle2.ogg"
+         type='audio/ogg; codecs=vorbis'>
+ <p>Your user agent does not support the HTML5 Audio element.</p>
+</audio>
 <!--<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js'>-->
 </body>
 </html>

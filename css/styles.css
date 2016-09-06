@@ -2,7 +2,8 @@ body {
   background: blue;
   width: 100%;
   box-sizing: border-box;
-  zoom: 80%
+  zoom: 80%;
+  font-family: 'Vesper Libre', serif;
 }
 #container {
   width: 100%;
@@ -20,10 +21,17 @@ body {
 p {
   font-size: 20px;
 }
+a {
+  color: white;
+}
+a:visited {
+  color: green;
+}
 h1 {
   text-align: center;
   font-size: 2.5rem;
   margin-top: 2rem;
+  color: white;
 }
 h2 {
   text-align: center;
@@ -38,6 +46,9 @@ h3 {
 }
 h4 {
   margin-top: 0px;
+}
+h5 {
+  font-size: 1rem;
 }
 .cell {
   width: 4em;
@@ -71,6 +82,24 @@ h4 {
   color: white;
   font-size: 44px;
   line-height: 0px;
+  text-align: center;
+}
+button {
+  width: 80%;
+  margin: .3em auto .3em 10%;
+  text-align: center;
+  cursor: pointer;
+  background-color: purple;
+  box-shadow: 0px 9px black;
+  border-radius: 15px;
+  color: white;
+}
+button:active {
+  box-shadow: 0px 5px #cc;
+  transform: translateY(5px);
+}
+.clear {
+  clear: both;
   text-align: center;
 }
  #funfacts {
