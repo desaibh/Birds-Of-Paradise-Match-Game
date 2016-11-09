@@ -107,7 +107,7 @@ function checkWins() {
 checkWins();
 
 // Listen to a Click Event to Swap Cells
-document.getElementById('board').addEventListener('click', function (event) {
+document.getElementById('board').addEventListener('click', function () {
   if (stringAdjacency1 == null) {
     click1ID = event.target.id.toString();
     click1Class = event.target.className.toString();
