@@ -12,7 +12,7 @@ let scorer = 0;  // holds the value of the score;
 let click1ID; // records id of first click event
 let click1Class; // records class of first click event
 let click2ID; // records id of second click event
-let click2Class;  // records class of first click event
+let click2Class;  // records class of second click event
 let stringAdjacency1 = null; // evaluates whether the cell Ids are adjacent
 let stringAdjacency2 = null; // evaluates whether the cell Ids are adjacent
 let gameOver; // alerts user to gameOver
