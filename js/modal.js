@@ -1,3 +1,4 @@
+Adapted from source: http://www.w3schools.com/howto/howto_css_modals.asp
 let modal1 = {
     heading:'How To Play',
     description:'Match 4 Birds in A Row',
@@ -18,12 +19,12 @@ let modal3 = {
     description:'Match 8 Birds or More to Win Bonus Points',
     image: '',
     caption: '',
-    nextPage: 'close',
+    nextPage: 'close'
     prevPage:'modal2'
 };
 class Modal {
-  constructor(description) {
-    this.description = description;
+  constructor(modal) {
+    this.modal = modal;
   }
 }
 class ModalView {
@@ -34,7 +35,7 @@ class ModalView {
   }
   setCloseClickHandler {
     this.el.querySelector('span.close').addEventListener('click', (e) => {
-      const closeModal = new CustomeEvent('close-clicked', {
+      const closeModal = new CustomEvent('close-clicked', {
         bubbles: true;,
         detail: { modal: this.modal }
       })

@@ -164,6 +164,7 @@ function timer(duration) {
 window.onload = function () {
   timer(120);
 };
+
 // Play Again function
 document.querySelector('#playAgain').addEventListener('click', function () {
   window.location.reload();
