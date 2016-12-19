@@ -1,6 +1,6 @@
 body {
   background:   blue;
-  background-image: 
+  background-image:
                 url('../images/fern.png'),
                 url('../images/foliage.png'),
                 url('../images/grass.png'),
@@ -126,6 +126,7 @@ button:active {
 .bird3 {
   background-image: url('../images/bird3.gif');
   background-color: orange;
+
 }
 .bird4 {
   background-image: url('../images/bird4.gif');
@@ -136,6 +137,13 @@ button:active {
 }
 .reset {
   background-color: green;
+}
+.selected {
+  color: green;
+  border: 8px yellow solid;
+  background-size: 45px 45px;
+  width: 50px;
+  height: 50px;
 }
 .mp-modal {
 	position: fixed;

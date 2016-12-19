@@ -112,6 +112,7 @@ document.getElementById('board').addEventListener('click', function (event) {
     click1ID = event.target.id.toString();
     click1Class = event.target.className.toString();
     stringAdjacency1 = parseInt(click1ID.replace('cell', ''));
+    document.getElementById(click1ID).classList.add('selected');
   } else if (stringAdjacency1 !== null) {
     click2ID = event.target.id.toString();
     click2Class = event.target.className.toString();
@@ -132,6 +133,7 @@ document.getElementById('board').addEventListener('click', function (event) {
       // deselect
       stringAdjacency1 = null;
       stringAdjacency2 = null;
+      document.getElementById(click1ID).classList.remove('selected');
     }
   }
 });
@@ -163,17 +165,36 @@ function timer(duration) {
 }
 window.onload = function () {
   timer(120);
+  var bgSound = document.getElementById('bgSound');
+  bgSound.muted = true;
 };
 
 // Play Again function
-document.querySelector('#playAgain').addEventListener('click', function () {
+document.querySelector('#playAgain').addEventListener('click', function() {
   window.location.reload();
 });
 
 // Mute Audio
-document.querySelector('#muteAudio').addEventListener('click', function () {
-  document.getElementById('bgSound').muted = true;
-});
+
+function toggleAudio(bgSound) {
+  let muteAudio = document.getElementById('muteAudio');
+  if (muteAudio.innerHTML=="<h5>Play Audio</h5>") {
+    bgSound.muted = false;
+    muteAudio.innerHTML = "<h5>Mute Audio</h5>";
+    console.log(bgSound, muteAudio.innerHTML)
+  } else if (muteAudio.innerHTML=="<h5>Mute Audio</h5>") {
+    bgSound.muted = true;
+    console.log(bgSound, muteAudio.innerHTML)
+    muteAudio.innerHTML = "<h5>Play Audio</h5>";
+  }
+}
+
+document.querySelector('#muteAudio').addEventListener('click', function() {
+  toggleAudio(bgSound);
+}, false);
+
+
+
 
 // Playing with changing colors for each letter
 // let chars = document.getElementsByTagName('h1')[0].innerHTML.split('');
