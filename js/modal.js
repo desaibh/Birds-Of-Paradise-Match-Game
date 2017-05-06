@@ -1,12 +1,12 @@
 Adapted from source: http://www.w3schools.com/howto/howto_css_modals.asp
-let modal1 = {
+var modal1 = {
     heading:'How To Play',
     description:'Match 4 Birds in A Row',
     image: '',
     prevPage: 'skip',
     nextPage: 'modal2'
 };
-let modal2 = {
+var modal2 = {
     heading:'How To Play',
     description:'Match 4 or More Birds in a Column',
     image: '',
@@ -14,7 +14,7 @@ let modal2 = {
     nextPage: 'modal3',
     prevPage:'modal1'
 };
-let modal3 = {
+var modal3 = {
     heading:'How To Play',
     description:'Match 8 Birds or More to Win Bonus Points',
     image: '',
