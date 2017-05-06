@@ -19,7 +19,7 @@ var modal3 = {
     description:'Match 8 Birds or More to Win Bonus Points',
     image: '',
     caption: '',
-    nextPage: 'close'
+    nextPage: 'close',
     prevPage:'modal2'
 };
 console.log('loading modal');
