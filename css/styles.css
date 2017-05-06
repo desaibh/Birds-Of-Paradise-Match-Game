@@ -139,8 +139,7 @@ button:active {
   background-color: green;
 }
 .selected {
-  color: green;
-  border: 2px yellow solid;
+  background-color: green;
 }
 .mp-modal {
 	position: fixed;
