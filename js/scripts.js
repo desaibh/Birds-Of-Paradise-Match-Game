@@ -1,5 +1,5 @@
 var birdPicker = 0; // counter that randomly assigns bird background
-sbirdValue = []; // array of birds used to check for winning combos;
+var birdValue = []; // array of birds used to check for winning combos;
 var placeholder; // birdvalue placeholder for swap function
 var birdChoice = ''; // string that retains class for bird background
 var cellClass = ''; // classes assigned to each cell on gameboard
