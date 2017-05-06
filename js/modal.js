@@ -1,4 +1,4 @@
-Adapted from source: http://www.w3schools.com/howto/howto_css_modals.asp
+//sAdapted from source: http://www.w3schools.com/howto/howto_css_modals.asp
 var modal1 = {
     heading:'How To Play',
     description:'Match 4 Birds in A Row',

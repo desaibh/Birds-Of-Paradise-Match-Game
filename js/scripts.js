@@ -80,8 +80,8 @@ function checkWins() {
   winningCombos = winArr.slice(0);
 
   // Identify Cells that Are Reset, Sparkle, then Repopulate
-  for (var wins of winningCombos) {
-    cellId = 'cell' + wins;
+  for (var win of winningCombos) {
+    cellId = 'cell' + win;
     cellClass = 'cell reset';
     document.getElementById(cellId).className = cellClass;
     if (!gameOver) {
@@ -93,8 +93,8 @@ function checkWins() {
   }
 
   document.onload = setTimeout(function resetBoard() {
-    for (var wins of winningCombos) {
-      cellId = 'cell' + wins;
+    for (var winner of winningCombos) {
+      cellId = 'cell' + winner;
       birdPicker = Math.floor(Math.random() * 4) + 1;
       birdValue[wins] = birdPicker;
       cellClass = 'cell bird' + birdPicker;
