@@ -17,6 +17,7 @@ var stringAdjacency1 = null; // evaluates whether the cell Ids are adjacent
 var stringAdjacency2 = null; // evaluates whether the cell Ids are adjacent
 var gameOver; // alerts user to gameOver
 
+console.log('loading');
 // Generate Cells on Board & Assign Display Value for Cell
 for (var i = 1; i < 101; i++) {
   birdPicker = Math.floor(Math.random() * 4) + 1;

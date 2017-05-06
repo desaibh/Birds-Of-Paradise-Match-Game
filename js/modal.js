@@ -22,6 +22,8 @@ var modal3 = {
     nextPage: 'close'
     prevPage:'modal2'
 };
+console.log('loading modal');
+
 class Modal {
   constructor(modal) {
     this.modal = modal;
