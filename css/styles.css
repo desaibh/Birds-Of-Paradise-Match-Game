@@ -74,7 +74,7 @@ h5 {
   border-radius: .25em;
   -moz-border-radius: .25em;
   -webkit-border-radius: .25em;
-  background-color: orange;
+  background-color: beige;
 }
 #timer, #score {
   width: 80%;
@@ -117,20 +117,20 @@ button:active {
 }
 .bird1 {
   background-image: url("../images/bird1.gif");
-  background-color: orange;
+  background-color: beige;
 }
 .bird2 {
   background-image: url('../images/bird2.gif');
-  background-color: orange;
+  background-color: beige;
 }
 .bird3 {
   background-image: url('../images/bird3.gif');
-  background-color: orange;
+  background-color: beige;
 
 }
 .bird4 {
   background-image: url('../images/bird4.gif');
-  background-color: orange;
+  background-color: beige;
 }
 .clear a {
   color: white;
